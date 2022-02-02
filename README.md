@@ -19,6 +19,7 @@ Then the menu will show up. Each function's descriptions are below.
 <br/>
 
 ### teleport move
+![](src/sample1.gif)
 by enabling, you can move through anywhere (even walls) by arrow keys.  
 (you can still move normally by wasd key)
 
@@ -29,6 +30,7 @@ enter the number and click apply button to change the boost.
 <br/>
 
 ### dance
+![](src/sample2.gif)
 there are square/updown/rightleft dance.  
 you can enable it to make your character dance.  
 
@@ -39,13 +41,16 @@ notice that the smaller the number, faster the speed.
 <br/>
 
 ### ghost
+![](src/sample3.gif)
 in gather, you have to press `g` for the whole time, but with this extension,
 you only have to click `Enable` onetime and disable it by clicking `Disable` one time.
 
 <br/>
 
 ### single emote
+![](src/sample4.gif)
 enter ONLY ONE character or emoji and click apply to show that input above the character.
 
 ### multi emote
+![](src/sample5.gif)
 enter some message in and click apply to show the message one character at a time above the character.
