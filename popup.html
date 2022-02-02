@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="color.css">
+    </head>
+    <body>
+        <font face="Monotype Corsiva" size="3">
+            <h2><b>Gather Cheats</b></h2>
+
+
+            <p>&gt; Activate</p>
+            <ul id="buttons">
+                <li id="activate"><span>&nbsp;&nbsp;&nbsp;&nbsp;Activate</span><br></li>
+            </ul>
+
+
+            <p>&gt; TeleportMove</p>
+            <ul id="buttons">
+                <li id="teleportmove_enable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Enable</span><br></li>
+                <li id="teleportmove_disable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Disable</span></li>
+            </ul>
+
+				<p>boost (0-20): </p>
+				<input id="boostinput" type="number" min="0" step="20" placeholder="3"/>
+				<input id="changeboost" type="button" value="apply"/>
+
+
+            <p>&gt; SquareDance</p>
+            <ul id="buttons">
+                <li id="squaredance_enable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Enable</span><br></li>
+                <li id="squaredance_disable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Disable</span></li>
+            </ul>
+
+            <p>&gt; UpDownDance</p>
+            <ul id="buttons">
+                <li id="updowndance_enable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Enable</span><br></li>
+                <li id="updowndance_disable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Disable</span></li>
+            </ul>
+
+            <p>&gt; RightLeftDance</p>
+            <ul id="buttons">
+                <li id="rightleftdance_enable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Enable</span><br></li>
+                <li id="rightleftdance_disable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Disable</span></li>
+            </ul>
+
+				<p>dancespeed (80-3000):<br/>
+				(smaller faster)</p>
+				<input id="dancespeedinput" type="number" min="80" step="3000" placeholder="200"/>
+				<input id="changedancespeed" type="button" value="apply"/>
+
+            <p>&gt; Ghost</p>
+            <ul id="buttons">
+                <li id="ghost_enable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Enable</span><br></li>
+                <li id="ghost_disable"><span>&nbsp;&nbsp;&nbsp;&nbsp;Disable</span></li>
+            </ul>
+
+            <p>&gt; SingleEmote</p>
+				<input id="singleemoteinput"/>
+				<input id="outputsingleemote" type="button" value="apply"/>
+
+            <p>&gt; MultiEmote</p>
+				<input id="multiemoteinput"/>
+				<input id="outputmultiemote" type="button" value="apply"/>
+
+        </font>
+    </body>
+    <script type="text/javascript" src="main.js"></script>
+</html>

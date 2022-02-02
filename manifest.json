@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "GatherCheats",
+  "version": "1.0",
+  "description": "hackz for gather.town",
+  "permissions": ["tabs", "activeTab"],
+  "icons": {
+    "16": "src/icon.png",
+    "48": "src/icon.png",
+    "128": "src/icon.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "*://gather.town/*" ],
+      "js": ["inject.js"]
+    }
+  ],
+  "web_accessible_resources": ["init.js"]
+}
