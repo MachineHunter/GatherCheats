@@ -1,6 +1,9 @@
 # Gather Cheats
 Chrome Extensions that can let you become a hero in gather.town
 
+## Demo
+you can watch demo video from [here](src/GatherCheatsDemo.mp4)
+
 ## Install
 1. open chrome and access `chrome://extensions`
 2. toggle `developer mode` on
