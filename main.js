@@ -100,4 +100,12 @@ window.onload = function() {
             code: "window.dispatchEvent(new CustomEvent('battlemode_disable'));"
         });
     }
+
+	// surround by boulder
+    document.getElementById("surroundbyboulder").onclick = function() {
+		  target = document.getElementById("surroundbyboulderinput").value.toString();
+        chrome.tabs.executeScript({
+			  code: "window.dispatchEvent(new CustomEvent('surroundbyboulder', {'detail':'" + target + "'}));"
+        });
+    }
 }

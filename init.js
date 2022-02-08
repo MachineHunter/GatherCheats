@@ -269,18 +269,38 @@ async function BoulderMagic(keycode) {
 		await new Promise(r => setTimeout(r, 100));
 	}
 }
-
 document.onkeydown = function (event) {
 	if(battlemode==1 && event.keyCode>=73 && event.keyCode<=76) {
 		BoulderMagic(event.keyCode);
 	}
 };
-
 window.addEventListener("battlemode_enable", function() {
 	battlemode = 1;
 }, false);
 window.addEventListener("battlemode_disable", function() {
 	battlemode = 0;
+}, false);
+
+
+// Surround By Boulder
+//   description: surround target player by "Boulder (2x2)" object
+async function SurroundByBoulder(target) {
+	targetPos = GetPlayerPos(target);
+	attackLength = 3;
+	itemname = "Boulder (2x2)";
+	curRoom = gameSpace.maps[gameSpace.mapId];
+	for(let j=0; j<attackLength; j++) {
+		for(let i=0; i<attackLength; i++) {
+			item = curRoom.objects.filter(o => (o._name).includes(itemname))[0];
+			item.x = targetPos.x - 1 - Math.floor(attackLength/2) + i;
+			item.y = targetPos.y - 1 + j;
+			game.setObject(curRoom.id, item.templateId, item, true);
+			await new Promise(r => setTimeout(r, 150));
+		}
+	}
+}
+window.addEventListener("surroundbyboulder", e => {
+	SurroundByBoulder(e.detail);
 }, false);
 
 console.log("[GatherCheats] initializing complete");
