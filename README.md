@@ -57,6 +57,7 @@ enter some message in and click apply to show the message one character at a tim
 
 
 ### Surround By Boulder
+![](src/surroundbyboulder.gif)
 place boulders arround specified player! (enter player's name)  
 ※ 1 there should be at least one "Boulder (2x2)" object in the map you're in
 ※ 2 you have to have permission to place object in the map
@@ -67,6 +68,7 @@ place boulders arround specified player! (enter player's name)
 ## BattleMode
 
 ### Boulder Magic
+![](src/bouldermagic.gif)
 Enable this and you can use boulder magic to attack player by ijkl (i:up j:left k:down l:right).
 ※ 1 there should be at least one "Boulder (2x2)" object in the map you're in
 ※ 2 you have to have permission to place object in the map
