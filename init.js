@@ -33,27 +33,25 @@ function GetPlayerPos(playername) {
 // teleport move
 //   description: use arrow key to move anywhere without colliding to object. (can go anywhere)
 //   * boost variable: value of speed
-document.onkeydown = function (event) {
-	if(telemove==1) {
-		curPos   = GetPos();
-		curMapId = gameSpace.mapId;
+async function TeleportMove(keycode) {
+	curPos   = GetPos();
+	curMapId = gameSpace.mapId;
 
-		switch (event.keyCode) {
-			case 37: // left arrow
-				game.teleport(curMapId, curPos.x-boost, curPos.y);
-				break;
-			case 38: // up arrow
-				game.teleport(curMapId, curPos.x, curPos.y-boost);
-				break;
-			case 39: // right arrow
-				game.teleport(curMapId, curPos.x+boost, curPos.y);
-				break;
-			case 40: // down arrow
-				game.teleport(curMapId, curPos.x, curPos.y+boost);
-				break;
-		}
+	switch (keycode) {
+		case 37: // left arrow
+			game.teleport(curMapId, curPos.x-boost, curPos.y);
+			break;
+		case 38: // up arrow
+			game.teleport(curMapId, curPos.x, curPos.y-boost);
+			break;
+		case 39: // right arrow
+			game.teleport(curMapId, curPos.x+boost, curPos.y);
+			break;
+		case 40: // down arrow
+			game.teleport(curMapId, curPos.x, curPos.y+boost);
+			break;
 	}
-};
+}
 window.addEventListener("teleportmove_enable", function() {
 	telemove = 1;
 }, false);
@@ -269,11 +267,6 @@ async function BoulderMagic(keycode) {
 		await new Promise(r => setTimeout(r, 100));
 	}
 }
-document.onkeydown = function (event) {
-	if(battlemode==1 && event.keyCode>=73 && event.keyCode<=76) {
-		BoulderMagic(event.keyCode);
-	}
-};
 window.addEventListener("battlemode_enable", function() {
 	battlemode = 1;
 }, false);
@@ -302,5 +295,21 @@ async function SurroundByBoulder(target) {
 window.addEventListener("surroundbyboulder", e => {
 	SurroundByBoulder(e.detail);
 }, false);
+
+
+
+// key input handler
+document.onkeydown = function (event) {
+	if(telemove==1) {
+		if(event.keyCode>=37 && event.keyCode<=40) {
+			TeleportMove(event.keyCode);
+		}
+	}
+	if(battlemode==1) {
+		if(event.keyCode>=73 && event.keyCode<=76) {
+			BoulderMagic(event.keyCode);
+		}
+	}
+};
 
 console.log("[GatherCheats] initializing complete");

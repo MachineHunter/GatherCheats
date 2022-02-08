@@ -54,3 +54,21 @@ enter ONLY ONE character or emoji and click apply to show that input above the c
 ### multi emote
 ![](src/sample5.gif)
 enter some message in and click apply to show the message one character at a time above the character.
+
+
+### Surround By Boulder
+place boulders arround specified player! (enter player's name)  
+※ 1 there should be at least one "Boulder (2x2)" object in the map you're in
+※ 2 you have to have permission to place object in the map
+
+
+<br/>
+
+## BattleMode
+
+### Boulder Magic
+Enable this and you can use boulder magic to attack player by ijkl (i:up j:left k:down l:right).
+※ 1 there should be at least one "Boulder (2x2)" object in the map you're in
+※ 2 you have to have permission to place object in the map
+
+
