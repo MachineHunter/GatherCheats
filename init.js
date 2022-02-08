@@ -232,9 +232,9 @@ async function BoulderMagic(keycode) {
 	attackLength = 5;
 	itemname = "Boulder (2x2)";
 	curRoom = gameSpace.maps[gameSpace.mapId];
+	curPos = GetPos();
 	for(let i=0; i<attackLength; i++) {
 		item = curRoom.objects.filter(o => (o._name).includes(itemname))[0];
-		curPos = GetPos();
 
 		switch(keycode) {
 			case 73: // i (up)
