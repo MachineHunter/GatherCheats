@@ -6,6 +6,7 @@ telemove       = 0;
 squaredance    = 0;
 updowndance    = 0;
 rightleftdance = 0;
+battlemode     = 0;
 
 
 // global parameters
@@ -18,6 +19,15 @@ function GetPos() {
   curStats = gameSpace.gameState[gameSpace.id];
   return {x:curStats.x, y:curStats.y};
 };
+
+function GetPlayerPos(playername) {
+	for(playerId of Object.keys(gameSpace.gameState)) {
+		player = gameSpace.gameState[playerId];
+		if(player.name == playername) {
+			return {x:player.x, y:player.y}
+		}
+	}
+}
 
 
 // teleport move
@@ -213,6 +223,64 @@ async function MultiEmote(msg) {
 }
 window.addEventListener("outputmultiemote", e => {
 	MultiEmote(e.detail);
+}, false);
+
+
+// Boulder magic
+//   description: attack by placing 5 "Boulder (2x2)" to the direction specified by ijkl(i:up j:left k:down l:right) 
+//   restriction1: at least one Boulder object should be placed in map
+//   restriction2: user should have permission to put object in map
+async function BoulderMagic(keycode) {
+	attackLength = 5;
+	itemname = "Boulder (2x2)";
+	curRoom = gameSpace.maps[gameSpace.mapId];
+	for(let i=0; i<attackLength; i++) {
+		item = curRoom.objects.filter(o => (o._name).includes(itemname))[0];
+		curPos = GetPos();
+
+		switch(keycode) {
+			case 73: // i (up)
+				item.x = curPos.x - 1;
+				item.y = curPos.y - 1 - i;
+				break;
+			case 74: // j (left)
+				item.x = curPos.x - 1 - i;
+				item.y = curPos.y - 1;
+				break;
+			case 76: // l (right)
+				item.x = curPos.x - 1 + i;
+				item.y = curPos.y - 1;
+				break;
+			case 75: // k (down)
+				item.x = curPos.x - 1;
+				item.y = curPos.y - 1 + i;
+				break;
+		}
+
+		game.setObject(curRoom.id, item.templateId, item, true);
+		await new Promise(r => setTimeout(r, 150));
+	}
+	await new Promise(r => setTimeout(r, 150));
+	curRoom = gameSpace.maps[gameSpace.mapId];
+	for(let i=0; i<attackLength; i++) {
+		try{
+			game.deleteObjectByKey(curRoom.id, curRoom.objects.filter(o => (o._name).includes(itemname))[1].key, true);
+		} catch(e){}
+		await new Promise(r => setTimeout(r, 100));
+	}
+}
+
+document.onkeydown = function (event) {
+	if(battlemode==1 && event.keyCode>=73 && event.keyCode<=76) {
+		BoulderMagic(event.keyCode);
+	}
+};
+
+window.addEventListener("battlemode_enable", function() {
+	battlemode = 1;
+}, false);
+window.addEventListener("battlemode_disable", function() {
+	battlemode = 0;
 }, false);
 
 console.log("[GatherCheats] initializing complete");

@@ -88,4 +88,16 @@ window.onload = function() {
 			  code: "window.dispatchEvent(new CustomEvent('outputmultiemote', {'detail':'" + emote + "'}));"
         });
     }
+
+	// battle mode
+    document.getElementById("battlemode_enable").onclick = function() {
+			chrome.tabs.executeScript({
+				 code: "window.dispatchEvent(new CustomEvent('battlemode_enable'));"
+			});
+    }
+    document.getElementById("battlemode_disable").onclick = function() {
+        chrome.tabs.executeScript({
+            code: "window.dispatchEvent(new CustomEvent('battlemode_disable'));"
+        });
+    }
 }
