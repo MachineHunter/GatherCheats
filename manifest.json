@@ -14,7 +14,7 @@
   },
   "content_scripts": [
     {
-      "matches": [ "*://gather.town/*" ],
+      "matches": [ "*://gather.town/*", "*://app.gather.town/*" ],
       "js": ["inject.js"]
     }
   ],
